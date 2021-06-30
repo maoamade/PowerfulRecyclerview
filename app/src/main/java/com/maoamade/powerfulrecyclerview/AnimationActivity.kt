@@ -1,12 +1,12 @@
 package com.maoamade.powerfulrecyclerview
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.maoamade.powerfulrecy.base.AnimationType
+import com.maoamade.powerfulrecy.base.BaseAdapter
 import com.maoamade.powerfulrecyclerview.adapter.AnimationAdapter
-import com.maoamade.powerfulrecyclerview.adapter.BaseAdapter
 import com.maoamade.powerfulrecyclerview.bean.DataEntity
 
 /**
@@ -33,7 +33,8 @@ class AnimationActivity : AppCompatActivity() {
             adapter = mAdapter
 
         }
-        mAdapter?.setAnimationWithDefault(BaseAdapter.AnimationType.ScaleIn)
+        mAdapter?.setAnimationAvailable(true)
+        mAdapter?.setAdapterAnimation(AnimationType.ANIMATION_SCALE)
         initData()
     }
 

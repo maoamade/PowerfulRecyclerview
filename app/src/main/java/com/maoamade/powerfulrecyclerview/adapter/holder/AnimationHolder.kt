@@ -3,8 +3,8 @@ package com.maoamade.powerfulrecyclerview.adapter.holder
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.maoamade.powerfulrecy.base.BaseViewHolder
 import com.maoamade.powerfulrecyclerview.R
-import com.maoamade.powerfulrecyclerview.adapter.BaseViewHolder
 import com.maoamade.powerfulrecyclerview.bean.DataEntity
 
 class AnimationHolder(private val parent: ViewGroup) :
