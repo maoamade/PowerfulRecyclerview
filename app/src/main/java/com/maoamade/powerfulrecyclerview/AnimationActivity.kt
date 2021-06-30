@@ -58,6 +58,7 @@ class AnimationActivity : AppCompatActivity() {
         dataList.add(DataEntity("1","1"))
         dataList.add(DataEntity("1","1"))
         dataList.add(DataEntity("1","1"))
+        dataList.add(DataEntity("1","1"))
         mAdapter?.addData(dataList)
     }
 }
