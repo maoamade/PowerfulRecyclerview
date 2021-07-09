@@ -2,8 +2,8 @@ package com.maoamade.powerfulrecy.base
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
-import com.maoamade.powerfulrecy.animation.BaseAnimation
-import com.maoamade.powerfulrecy.animation.baseanimation.*
+import com.maoamade.powerfulrecy.animation.entranceanimation.BaseEntranceAnimation
+import com.maoamade.powerfulrecy.animation.entranceanimation.*
 import com.maoamade.powerfulrecy.listener.OnItemClickListener
 
 /**
@@ -24,7 +24,7 @@ abstract class BaseAdapter<T>(val context: Context) :
 
     private var adapterAnimationEnable: Boolean = false
 
-    private var adapterAnimation: BaseAnimation? = null
+    private var adapterEntranceAnimation: BaseEntranceAnimation? = null
 
     private var mLastPosition = -1
 
@@ -46,7 +46,7 @@ abstract class BaseAdapter<T>(val context: Context) :
      */
     private fun addAnimation(holder: BaseViewHolder<T>) {
         if (adapterAnimationEnable && holder.layoutPosition > mLastPosition){
-            val animation = adapterAnimation?.animators(holder.itemView)
+            val animation = adapterEntranceAnimation?.animators(holder.itemView)
             animation?.forEach {
                 it.start()
             }
@@ -96,20 +96,20 @@ abstract class BaseAdapter<T>(val context: Context) :
      * set the type of animation when the item is added to the window
      */
     fun setAdapterAnimation(type: AnimationType) {
-        adapterAnimation = when(type){
-            AnimationType.ANIMATION_ALPHA -> AlphaInAnimation()
-            AnimationType.ANIMATION_SCALE -> ScaleInAnimation()
-            AnimationType.ANIMATION_SLIDE_BOTTOM -> SlideInBottomAnimation()
-            AnimationType.ANIMATION_SLIDE_RIGHT -> SlideInRightAnimation()
-            AnimationType.ANIMATION_SLIDE_LEFT -> SlideInLeftAnimation()
+        adapterEntranceAnimation = when(type){
+            AnimationType.ANIMATION_ALPHA -> AlphaInEntranceAnimation()
+            AnimationType.ANIMATION_SCALE -> ScaleInEntranceAnimation()
+            AnimationType.ANIMATION_SLIDE_BOTTOM -> SlideInBottomEntranceAnimation()
+            AnimationType.ANIMATION_SLIDE_RIGHT -> SlideInRightEntranceAnimation()
+            AnimationType.ANIMATION_SLIDE_LEFT -> SlideInLeftEntranceAnimation()
         }
     }
 
     /**
      * set the customize animation when the item is added to the window
      */
-    fun setAdapterAnimation(adapterAnimation: BaseAnimation?){
-        this.adapterAnimation = adapterAnimation
+    fun setAdapterAnimation(adapterEntranceAnimation: BaseEntranceAnimation?){
+        this.adapterEntranceAnimation = adapterEntranceAnimation
     }
 
 }

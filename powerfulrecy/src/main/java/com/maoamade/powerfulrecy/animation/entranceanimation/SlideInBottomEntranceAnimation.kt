@@ -1,10 +1,9 @@
-package com.maoamade.powerfulrecy.animation.baseanimation
+package com.maoamade.powerfulrecy.animation.entranceanimation
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.view.View
 import android.view.animation.DecelerateInterpolator
-import com.maoamade.powerfulrecy.animation.BaseAnimation
 
 /**
 
@@ -15,7 +14,8 @@ import com.maoamade.powerfulrecy.animation.BaseAnimation
  * @Info SlideInBottomAnimation.kt
 
  */
-class SlideInBottomAnimation :BaseAnimation{
+class SlideInBottomEntranceAnimation :
+    BaseEntranceAnimation {
 
     override fun animators(view: View): Array<Animator> {
         val animator = ObjectAnimator.ofFloat(view,"TranslationY",view.measuredHeight.toFloat(),0f)

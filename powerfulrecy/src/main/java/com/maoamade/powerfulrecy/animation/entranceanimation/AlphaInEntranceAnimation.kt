@@ -1,10 +1,9 @@
-package com.maoamade.powerfulrecy.animation.baseanimation
+package com.maoamade.powerfulrecy.animation.entranceanimation
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
 import android.view.View
 import android.view.animation.LinearInterpolator
-import com.maoamade.powerfulrecy.animation.BaseAnimation
 
 /**
 
@@ -14,7 +13,8 @@ import com.maoamade.powerfulrecy.animation.BaseAnimation
 
  * @Info AlphaInAnimation
  */
-class AlphaInAnimation :BaseAnimation{
+class AlphaInEntranceAnimation :
+    BaseEntranceAnimation {
 
     override fun animators(view: View): Array<Animator> {
         val animator = ObjectAnimator.ofFloat(view,"alpha", DEFAULT_ALPHA_FROM,1F)
