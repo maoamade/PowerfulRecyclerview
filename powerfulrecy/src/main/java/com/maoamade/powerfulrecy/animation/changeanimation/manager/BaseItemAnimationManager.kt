@@ -19,18 +19,12 @@ import com.maoamade.powerfulrecy.animation.changeanimation.ItemAnimationInfo
  * @Info BaseItemAnimationManager.kt
 
  */
-abstract class BaseItemAnimationManager<T : ItemAnimationInfo>() {
+abstract class BaseItemAnimationManager<T : ItemAnimationInfo>(val itemAnimator: BaseItemAnimator) {
 
     var mDefaultInterpolator: TimeInterpolator? = null
-    lateinit var itemAnimator: BaseItemAnimator
     val mPending: MutableList<T> = mutableListOf()
     val mDeferredReadySets: MutableList<MutableList<T>> = mutableListOf()
     val mActive: MutableList<RecyclerView.ViewHolder> = mutableListOf()
-
-
-    constructor(itemAnimator: BaseItemAnimator) {
-        this.itemAnimator = itemAnimator
-    }
 
     fun hasPending(): Boolean {
         return mPending.isNotEmpty()

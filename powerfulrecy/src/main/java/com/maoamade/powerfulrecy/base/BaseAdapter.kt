@@ -34,15 +34,11 @@ abstract class BaseAdapter<T>(val context: Context) :
         holder.showView(getItemData(position))
         holder.addItemListener(getItemData(position))
         holder.addOnItemListener(itemClickListener)
-    }
-
-    override fun onViewAttachedToWindow(holder: BaseViewHolder<T>) {
-        super.onViewAttachedToWindow(holder)
         addAnimation(holder)
     }
 
     /**
-     * add the animation when the item is added to the window
+     * add the animation when the item is added to the recyclerview
      */
     private fun addAnimation(holder: BaseViewHolder<T>) {
         if (adapterAnimationEnable && holder.layoutPosition > mLastPosition){
@@ -78,6 +74,22 @@ abstract class BaseAdapter<T>(val context: Context) :
     }
 
     /**
+     * add single data
+     */
+    fun addData(data: T,position: Int) {
+        this.dataList.add(position,data)
+        notifyItemInserted(position)
+    }
+
+    /**
+     * remove single data
+     */
+    fun remove(position: Int) {
+        this.dataList.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
+    /**
      * clear
      */
     fun clear() {
@@ -106,7 +118,7 @@ abstract class BaseAdapter<T>(val context: Context) :
     }
 
     /**
-     * set the customize animation when the item is added to the window
+     * set the customize animation when the item is attached to the recyclerview
      */
     fun setAdapterAnimation(adapterEntranceAnimation: BaseEntranceAnimation?){
         this.adapterEntranceAnimation = adapterEntranceAnimation

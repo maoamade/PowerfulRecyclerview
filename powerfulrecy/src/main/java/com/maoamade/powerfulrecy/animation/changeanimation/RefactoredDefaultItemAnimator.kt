@@ -42,7 +42,8 @@ open class RefactoredDefaultItemAnimator : GeneralItemAnimator() {
     }
 }
 
-class DefaultItemAddAnimationManager(itemAnimator1: BaseItemAnimator) : ItemAnimationAddManager(itemAnimator1) {
+class DefaultItemAddAnimationManager(itemAnimator1: BaseItemAnimator) :
+    ItemAnimationAddManager(itemAnimator1) {
 
     override fun addPendingAnimation(holder: RecyclerView.ViewHolder?): Boolean {
         resetAnimation(holder)
@@ -76,7 +77,8 @@ class DefaultItemAddAnimationManager(itemAnimator1: BaseItemAnimator) : ItemAnim
 
 }
 
-class DefaultItemChangeAnimationManager(itemAnimator1: BaseItemAnimator) : ItemAnimationChangeManager(itemAnimator1) {
+class DefaultItemChangeAnimationManager(itemAnimator1: BaseItemAnimator) :
+    ItemAnimationChangeManager(itemAnimator1) {
 
     // new appear
     override fun onCreateAnimationChangeForNewItem(info: AnimationChangeInfo) {
@@ -162,7 +164,8 @@ class DefaultItemChangeAnimationManager(itemAnimator1: BaseItemAnimator) : ItemA
 
 }
 
-class DefaultItemMoveAnimationManager(itemAnimator1: BaseItemAnimator) : ItemAnimationMoveManager(itemAnimator1) {
+class DefaultItemMoveAnimationManager(itemAnimator1: BaseItemAnimator) :
+    ItemAnimationMoveManager(itemAnimator1) {
 
     override fun addPendingAnimaiton(
         holder: RecyclerView.ViewHolder?,
@@ -235,7 +238,8 @@ class DefaultItemMoveAnimationManager(itemAnimator1: BaseItemAnimator) : ItemAni
     }
 }
 
-class DefaultItemRemoveAnimationManager(itemAnimator1: BaseItemAnimator) : ItemAnimationRemoveManager(itemAnimator1){
+class DefaultItemRemoveAnimationManager(itemAnimator1: BaseItemAnimator) :
+    ItemAnimationRemoveManager(itemAnimator1) {
 
     override fun addPendingAnimation(viewHolder: RecyclerView.ViewHolder?): Boolean {
         resetAnimation(viewHolder)
@@ -248,7 +252,7 @@ class DefaultItemRemoveAnimationManager(itemAnimator1: BaseItemAnimator) : ItemA
             val animator = ViewCompat.animate(itemView)
             animator.duration = getDuration()
             animator.alpha(0f)
-            startActiveItemAnimaiton(info,info.holder,animator)
+            startActiveItemAnimaiton(info, info.holder, animator)
         }
     }
 

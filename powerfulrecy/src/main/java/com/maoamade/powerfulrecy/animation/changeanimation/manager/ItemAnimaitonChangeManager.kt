@@ -13,11 +13,7 @@ import com.maoamade.powerfulrecy.animation.changeanimation.info.AnimationChangeI
  * @Info ItemAnimaitonChangeManager.kt
 
  */
-abstract class ItemAnimationChangeManager : BaseItemAnimationManager<AnimationChangeInfo> {
-
-    constructor(itemAnimator: BaseItemAnimator) {
-        this.itemAnimator = itemAnimator
-    }
+abstract class ItemAnimationChangeManager(itemAnimator1: BaseItemAnimator) : BaseItemAnimationManager<AnimationChangeInfo>(itemAnimator1) {
 
     override fun dispatchStarting(
         info: AnimationChangeInfo?,
@@ -33,7 +29,7 @@ abstract class ItemAnimationChangeManager : BaseItemAnimationManager<AnimationCh
         itemAnimator.dispatchChangeFinished(viewHolder, info?.oldHolder == viewHolder)
     }
 
-    override fun getDuration(): Long = itemAnimator.changeDuration
+    override fun getDuration(): Long = if (itemAnimator.changeDuration >0) itemAnimator.changeDuration else 3000
 
     override fun setDuration(duration: Long) {
         itemAnimator.changeDuration = duration

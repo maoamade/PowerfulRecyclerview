@@ -13,17 +13,13 @@ import com.maoamade.powerfulrecy.animation.changeanimation.info.AnimationAddInfo
  * @Info ItemAnimationAddManager.kt
 
  */
-abstract class ItemAnimationAddManager : BaseItemAnimationManager<AnimationAddInfo> {
+abstract class ItemAnimationAddManager(itemAnimator1: BaseItemAnimator) : BaseItemAnimationManager<AnimationAddInfo>(itemAnimator1) {
 
-    constructor(itemAnimator: BaseItemAnimator) {
-        this.itemAnimator = itemAnimator
-    }
-    
     override fun setDuration(duration: Long) {
         itemAnimator.addDuration = duration
     }
 
-    override fun getDuration(): Long = itemAnimator.addDuration
+    override fun getDuration(): Long = if (itemAnimator.changeDuration >0) itemAnimator.changeDuration else 3000
 
     override fun dispatchStarting(info: AnimationAddInfo?, viewHolder: RecyclerView.ViewHolder?) {
         itemAnimator.dispatchAddStarting(viewHolder)

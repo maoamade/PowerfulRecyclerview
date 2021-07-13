@@ -33,7 +33,7 @@ abstract class GeneralItemAnimator : BaseItemAnimator {
     abstract fun onSetManager()
 
     override fun runPendingAnimations() {
-        if (hasPendingAnimations()) {
+        if (!hasPendingAnimations()) {
             return
         }
         onSchedulePendingAnimations()
